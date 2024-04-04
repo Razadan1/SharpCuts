@@ -33,7 +33,8 @@
 * One Barber can have many Appointments. (One-to-Many)
 * One Service can be included in many Appointments. (One-to-Many)
   
-**Additional Tables (Optional):**
+
+**Additional Tables (Maybe in the future):**
 
 * **Products:** To store information about hair care products sold at the salon.
 * **Inventory:** To track the stock levels of products.
