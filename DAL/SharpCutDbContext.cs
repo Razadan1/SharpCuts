@@ -5,10 +5,10 @@ namespace Desktop;
 
 public class SharpCutDbContext(DbContextOptions<SharpCutDbContext> options) : DbContext(options)
 {
-    public DbSet<ClientModel> Clients => Set<ClientModel>();
-    public DbSet<BarberModel> Barbers => Set<BarberModel>();
-    public DbSet<AppointmentModel> Appointments => Set<AppointmentModel>();
-    public DbSet<ServiceModel> Services => Set<ServiceModel>();
+    public DbSet<ClientModel> Clients  => Set<ClientModel>();
+        public DbSet<ClientModel> Barbers  => Set<ClientModel>();
+    public DbSet<ClientModel> Appointments  => Set<ClientModel>();
+    public DbSet<ServiceModel> Services  => Set<ServiceModel>();
 
 
 }
