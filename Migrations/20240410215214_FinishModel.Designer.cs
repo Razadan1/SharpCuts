@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SharpCuts.DAL.MyAppDbContext;
 
@@ -11,9 +12,11 @@ using SharpCuts.DAL.MyAppDbContext;
 namespace Desktop.Migrations
 {
     [DbContext(typeof(SharpCutDbContext))]
-    partial class SharpCutDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240410215214_FinishModel")]
+    partial class FinishModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,6 +59,9 @@ namespace Desktop.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("BarberId"));
 
+                    b.Property<bool>("Availability")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Bio")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -64,13 +70,9 @@ namespace Desktop.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("BarberId");
 
@@ -93,17 +95,13 @@ namespace Desktop.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("ClientID");
 
@@ -119,10 +117,6 @@ namespace Desktop.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ServiceID"));
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("longtext");
 

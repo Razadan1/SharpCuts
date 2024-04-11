@@ -17,6 +17,8 @@ namespace SharpCuts.Models
         public required string Email { get; set; }
         [Column(TypeName = "varchar(20)")]
 
+        public string Image { get; set; } = default!;
+
         public required string PhoneNumber { get; set; }
 
     }
