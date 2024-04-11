@@ -1,12 +1,25 @@
-@model List<BarberModel>
+@using SharpCuts.Models;
+@model List<BarberModel>;
+
+@{
+    ViewData["Title"] = "Barbers";
+}
 
 <h1>Barber List</h1>
-
-@foreach (var barber in Model)
-{
-    <div>
-        <img src="@barber.PictureUrl" alt="@barber.Name" width="100" height="100">
-        <h3>@barber.Name</h3>
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        @foreach (var barber in Model)
+        {
+                <div class="col">
+                    <div class="card shadow-sm">
+                            <img src="@barber.Image" alt="Img" width=100% height=50% style="object-fit: contain;">
+                        <div class="card-body">
+                            <p class="card-text">@barber.FirstName @barber.LastName</p>
+                        </div>
+                    </div>
+                </div>
+        }
+            </div>
     </div>
-}
-    using SharpCuts.Models;
+</div>

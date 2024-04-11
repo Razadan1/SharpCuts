@@ -10,6 +10,8 @@ namespace SharpCuts.Models
         [Column(TypeName = "varchar(50)")]
 
         public required string ServiceName { get; set; }
+        public string Image { get; set; } = default!;
+
         public required string Description { get; set; }
         [Column(TypeName = "decimal(10,2)")]
 

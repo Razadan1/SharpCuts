@@ -1,4 +1,5 @@
-﻿using SharpCuts.Models;
+﻿using SharpCuts.DTO.BarberDTO;
+using SharpCuts.Models;
 
 namespace SharpCuts.DAL.Contracts;
 
