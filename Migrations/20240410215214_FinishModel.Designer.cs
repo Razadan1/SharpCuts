@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SharpCuts.DAL.MyAppDbContext;
 
@@ -11,9 +12,11 @@ using SharpCuts.DAL.MyAppDbContext;
 namespace Desktop.Migrations
 {
     [DbContext(typeof(SharpCutDbContext))]
-    partial class SharpCutDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240410215214_FinishModel")]
+    partial class FinishModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,6 +58,9 @@ namespace Desktop.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("BarberId"));
+
+                    b.Property<bool>("Availability")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Bio")
                         .IsRequired()
