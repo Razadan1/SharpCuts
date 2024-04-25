@@ -1,0 +1,50 @@
+@model BarberBookingViewModel
+
+@{
+    ViewBag.Title = "Book Your Barber Appointment";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("BookAppointment", "Barber", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.BarberName)
+        @Html.DropDownListFor(m => m.BarberName, new SelectList(Model.AvailableBarbers), "Select a Barber", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BarberName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AppointmentDate)
+        @Html.TextBoxFor(m => m.AppointmentDate, "{0:yyyy-MM-dd}", new { @class = "form-control datepicker" })
+        @Html.ValidationMessageFor(m => m.AppointmentDate)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AppointmentTime)
+        @Html.DropDownListFor(m => m.AppointmentTime, new SelectList(Model.AvailableTimeSlots), "Select a Time Slot", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AppointmentTime)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CustomerName)
+        @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CustomerName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CustomerEmail)
+        @Html.TextBoxFor(m => m.CustomerEmail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CustomerEmail)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Book Appointment</button>
+}
+
+@section Scripts {
+    <script>
+        $(function () {
+            $(".datepicker").datepicker();
+        });
+    </script>
+}

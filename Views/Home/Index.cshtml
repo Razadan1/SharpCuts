@@ -1,8 +1,32 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Sharpcuts Barber Shop";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <p class="lead">Get the sharpest haircuts in town!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Classic Cuts</h2>
+        <p>
+            Our skilled barbers can give you a timeless look with a classic haircut. From crew cuts to side parts, we've got you covered.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Booking", "Barber")">Book Now &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Modern Styles</h2>
+        <p>
+            Stay on-trend with our modern hairstyles. From fades to quiffs, our barbers can create the latest looks.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Booking", "Barber")">Book Now &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Grooming Services</h2>
+        <p>
+            Complete your look with our grooming services, including beard trims, hot towel shaves, and more.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Booking", "Barber")">Book Now &raquo;</a></p>
+    </div>
 </div>

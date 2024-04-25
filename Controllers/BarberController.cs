@@ -9,20 +9,16 @@ namespace MyApp.Namespace
 {
     public class BarberController : Controller
     {
-        private readonly IBarber barberRepo;
-        public BarberController(IBarber barberRepo)
+        public IActionResult Booking()
         {
-            this.barberRepo = barberRepo;
-        }
-        [Route("/barbers/")]
-        // GET: BarberController
-        [HttpGet]
-        public async Task<ActionResult> Index()
-        {
-            var barbers = await barberRepo.GetAllAsync();
-            var barberDTOs = new BarberDTO(barbers);
-            return View(barberDTOs.barbers);
-        }
+            // Create a view model and pass it to the view
+            var viewModel = new BarberBookingViewModel
+            {
+                AvailableBarbers = new List<string> { "John", "Jane", "Bob" },
+                AvailableTimeSlots = new List<string> { "9:00 AM", "10:30 AM", "12:00 PM" }
+            };
 
+            return View(viewModel);
+        }
     }
 }
