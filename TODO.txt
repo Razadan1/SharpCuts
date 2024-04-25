@@ -1,0 +1,24 @@
+This file contains all what is needed to be done 
+
+Models(done)
+DTO
+`````BArber(done)
+`````Appointment
+`````Services
+`````Clients
+
+Views
+````Home Page
+`````BArber(done)
+`````Services
+`````Appointment
+`````Clients
+
+Controller
+`````BArber(done)
+`````Services
+`````Appointment
+`````Clients
+
+
+
